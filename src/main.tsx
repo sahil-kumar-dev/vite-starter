@@ -3,10 +3,13 @@ import { Toaster } from 'sonner'
 import App from './App.tsx'
 import './index.css'
 import { QueryProvider } from './provider/queryClient.tsx'
+import { BrowserRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')!).render(
-  <QueryProvider>
-    <Toaster richColors />
-    <App />
-  </QueryProvider>,
+  <BrowserRouter>
+    <QueryProvider>
+      <Toaster richColors />
+      <App />
+    </QueryProvider>
+  </BrowserRouter>
 )
