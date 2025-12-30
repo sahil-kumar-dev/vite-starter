@@ -10,17 +10,24 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default:
-          "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
+          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
         secondary:
-          "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
+          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
         destructive:
-          "border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
-        outline:
-          "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
+          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+        outline: "text-foreground",
+        pending:
+          "border-transparent bg-yellow-500/15 text-yellow-700 hover:bg-yellow-500/25 dark:text-yellow-400",
+        approved:
+          "border-transparent bg-green-500/15 text-green-700 hover:bg-green-500/25 dark:text-green-400",
+        rejected:
+          "border-transparent bg-red-500/15 text-red-700 hover:bg-red-500/25 dark:text-red-400",
+        delivered:
+          "border-transparent bg-blue-500/15 text-blue-700 hover:bg-blue-500/25 dark:text-blue-400",
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "pending",
     },
   }
 )
@@ -43,4 +50,4 @@ function Badge({
   )
 }
 
-export { Badge, badgeVariants }
+export { Badge }

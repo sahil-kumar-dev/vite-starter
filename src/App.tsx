@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import ProtectedRoutes from './components/shared/ProtectedRoutes';
 import { AuthPage } from './pages/AuthPage';
+import MaterialRequests from './pages/MaterialRequest';
 import PublicRoutes from './components/shared/PublicRoutes';
 import useAuthStore from './store/useAuthStore';
 import { useEffect } from 'react';
@@ -18,7 +19,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={
 					<ProtectedRoutes>
-						<p>Hello inital Project setup</p>
+						<MaterialRequests />
 					</ProtectedRoutes>}
 				/>
 				<Route path="/auth" element={

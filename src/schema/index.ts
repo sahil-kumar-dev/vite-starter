@@ -19,3 +19,17 @@ export const signInSchema = z.object({
 });
 
 export type SignInData = z.infer<typeof signInSchema>;
+
+export const MaterialRequestSchema = z.object({
+    material_name: z.string().min(2, 'Material name is required').max(200),
+    quantity: z.coerce.number().positive('Quantity must be positive').default(1),
+    unit: z.string().min(1, 'Unit is required').default('pieces'),
+    priority: z
+        .enum(['low', 'medium', 'high', 'urgent'])
+        .default('medium'),
+    project_id: z.string().optional().default(''),
+    notes: z.string().max(1000).optional(),
+    status: z.enum(['pending', 'approved', 'rejected', 'delivered']).default("pending")
+});
+
+export type MaterialRequestValues = z.infer<typeof MaterialRequestSchema>;
