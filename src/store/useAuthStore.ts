@@ -1,4 +1,3 @@
-import { supabase } from "@/lib/supabase";
 import type { Session, User } from "@supabase/supabase-js";
 import { create } from "zustand";
 
@@ -24,9 +23,6 @@ const useAuthStore = create<AuthStore>((set) => ({
     setError: (error: string | null) => set({ error }),
     initAuth: async () => {
         set({ loading: true });
-        const { data: { session } } = await supabase.auth.getSession();
-        const { data } = await supabase.auth.getUser();
-        set({ session, user: data.user ?? null });
         set({
             loading: false,
         });
